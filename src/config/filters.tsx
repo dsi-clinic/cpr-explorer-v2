@@ -439,7 +439,7 @@ const demographyFilters: FilterSection = {
             label: "0%",
           },
           {
-            value: 1,
+            value: 100,
             label: "100%",
           },
         ],
@@ -458,7 +458,7 @@ const demographyFilters: FilterSection = {
             label: "0%",
           },
           {
-            value: 1,
+            value: 100,
             label: "100%",
           },
         ],
@@ -478,7 +478,7 @@ const demographyFilters: FilterSection = {
             label: "0%",
           },
           {
-            value: 1,
+            value: 100,
             label: "100%",
           },
         ],
@@ -497,7 +497,7 @@ const demographyFilters: FilterSection = {
             label: "0%",
           },
           {
-            value: 1,
+            value: 100,
             label: "100%",
           },
         ],
@@ -517,7 +517,7 @@ const demographyFilters: FilterSection = {
             label: "0%",
           },
           {
-            value: 1,
+            value: 100,
             label: "100%",
           },
         ],
@@ -536,7 +536,7 @@ const demographyFilters: FilterSection = {
             label: "0%",
           },
           {
-            value: 1,
+            value: 100,
             label: "100%",
           },
         ],

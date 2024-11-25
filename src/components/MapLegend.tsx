@@ -30,7 +30,9 @@ export const Legend: React.FC<{
   options?: string[];
 }> = ({ title, colors, breaks, onChange, options }) => {
   const isPercent = title.includes("Percent");
-  const cleanBreaks = breaks.map(isPercent ? percentFormatter : compactFormatter);
+  const cleanBreaks = breaks.map(isPercent ? v => v/100 : v => v)
+    .map(isPercent ? percentFormatter : compactFormatter);
+    
   return (
     <Box
       component="div"

@@ -43,18 +43,18 @@ Data columns
 - ai_intensity: Pounds of active ingredient per square mile of total area (not just growing area)
 - prd_intensity: Pounds of product per square mile of total area (not just growing area)
 - Median HH Income: Median Household Income (2021 dollars)
-- Pax Total: Total Population
-- Pax NH Black: Total Black or African American Population (non hispanic)
+- Pop Total: Total Population
+- Pop NH Black: Total Black or African American Population (non hispanic)
 - Pct NH Black: Percent Black or African American
-- Pax Hispanic: Total Hispanic or Latino Population
+- Pop Hispanic: Total Hispanic or Latino Population
 - Pct Hispanic: Percent Hispanic or Latino
-- Pax NH White: Total White Population (non-Hispanic)
+- Pop NH White: Total White Population (non-Hispanic)
 - Pct NH White: Percent White (non-Hispanic)
-- Pax NH Asian: Total Asian Population (non-Hispanic)
+- Pop NH Asian: Total Asian Population (non-Hispanic)
 - Pct NH Asian: Percent Asian (non-Hispanic)
-- Pax NH American Indian: Total American Indian Population (non-Hispanic)
+- Pop NH American Indian: Total American Indian Population (non-Hispanic)
 - Pct NH American Indian: Percent American Indian (non-Hispanic)
-- Pax NH Pacific Islander: Total Pacific Islander Population (non-Hispanic)
+- Pop NH Pacific Islander: Total Pacific Islander Population (non-Hispanic)
 - Pct NH Pacific Islander: Percent Pacific Islander (non-Hispanic)
 - Pct No High School: Percent of people over 25 with Less Than High School degree as their highest level of education
 - Pct Agriculture: Percent of people working in Agriculture

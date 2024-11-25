@@ -70,11 +70,11 @@ export const mapLayers: {
   },
   {
     label: "Total Population",
-    dataColumn: "Pax Total",
+    dataColumn: "Pop Total",
     attribution: ACS_ATTRIBTUION,
     colorScheme: d3.schemeYlGnBu[5],
     tooltipKeys: {
-      "Pax Total": "Total Population",
+      "Pop Total": "Total Population",
     },
   },
   {
@@ -85,7 +85,7 @@ export const mapLayers: {
     tooltipKeys: {
       "Pct NH Black": "Percent Black or African American",
     },
-    tooltipFormatter: percentFormatter
+    tooltipFormatter: (v: number) => isNaN(v) ? `${v}` :percentFormatter(v/100)
   },
   {
     label: "Percent Hispanic or Latino",
@@ -95,7 +95,7 @@ export const mapLayers: {
     tooltipKeys: {
       "Pct Hispanic": "Percent Hispanic or Latino",
     },
-    tooltipFormatter: percentFormatter
+    tooltipFormatter: (v: number) => isNaN(v) ? `${v}` :percentFormatter(v/100)
   },
   // "Percent Non-Hispanic White",
   // "Percent Asian",
@@ -109,7 +109,7 @@ export const mapLayers: {
     tooltipKeys: {
       "Pct NH White": "Percent Non-Hispanic White",
     },
-    tooltipFormatter: percentFormatter
+    tooltipFormatter: (v: number) => isNaN(v) ? `${v}` :percentFormatter(v/100)
   },
   {
     label: "Percent Non-Hispanic Asian",
@@ -119,7 +119,7 @@ export const mapLayers: {
     tooltipKeys: {
       "Pct NH Asian": "Percent Asian",
     },
-    tooltipFormatter: percentFormatter
+    tooltipFormatter: (v: number) => isNaN(v) ? `${v}` :percentFormatter(v/100)
   },
   {
     label: "Percent Non-Hispanic American Indian and Alaska Native",
@@ -129,7 +129,7 @@ export const mapLayers: {
     tooltipKeys: {
       "Pct NH AIAN": "Percent American Indian and Alaska Native",
     },
-    tooltipFormatter: percentFormatter
+    tooltipFormatter: (v: number) => isNaN(v) ? `${v}` :percentFormatter(v/100)
   },
   {
     label: "Percent Non-Hispanic Native Hawaiian and Pacific Islander",
@@ -139,7 +139,7 @@ export const mapLayers: {
     tooltipKeys: {
       "Pct NH NHPI": "Percent Native Hawaiian and Pacific Islander",
     },
-    tooltipFormatter: percentFormatter
+    tooltipFormatter: (v: number) => isNaN(v) ? `${v}` :percentFormatter(v/100)
   },
   {
     label: "Percent With Less Than High School",
@@ -149,7 +149,7 @@ export const mapLayers: {
     tooltipKeys: {
       "Pct No High School": "Percent With Less Than High School",
     },
-    tooltipFormatter: percentFormatter
+    tooltipFormatter: (v: number) => isNaN(v) ? `${v}` :percentFormatter(v/100)
   },
   {
     label: "Percent Working in Agriculture",
@@ -159,7 +159,7 @@ export const mapLayers: {
     tooltipKeys: {
       "Pct Agriculture": "Percent Working in Agriculture",
     },
-    tooltipFormatter: percentFormatter
+    tooltipFormatter: (v: number) => isNaN(v) ? `${v}` :percentFormatter(v/100)
   },
 ];
 export const MapLayerOptions = mapLayers.map((layer) => layer.label);
@@ -177,7 +177,7 @@ export const getMapConfig = (view: string): {
   {
     layer: "Townships",
     tileset: "cpr2024.62lnnt0z",
-    endpoint: "66c364f46cea330008e258c2",
+    endpoint: "6744f63adb91810008024959",
     tileId: "MeridianTownshipRange",
     dataId: "MeridianTownshipRange",
     sortKeys: "MeridianTownshipRange",
@@ -186,36 +186,36 @@ export const getMapConfig = (view: string): {
       MeridianTownshipRange: "MeridianTownshipRange",
     },
   },
-  {
-    layer: "Counties",
-    tileset: "cpr2024.47ns3kc2",
-    endpoint: "66c3a44c698c0f0008ae926b",
-    tileId: "GEOID",
-    dataId: "FIPS",
-    sortKeys: "Area Name",
-    filterKeys: [...view === 'map' ? mapKeys : demogViewKeys, "Agricultural Use"],
-    tooltipKeys: {
-      "Area Name": "Name",
-      GEOID: "GEOID",
-    },
-  },
-  {
-    layer: "School Districts",
-    tileset: "cpr2024.5i4j8yha",
-    endpoint: "66c3a4e0698c0f0008ae926c",
-    tileId: "FIPS",
-    dataId: "FIPS",
-    filterKeys: view === 'map' ? mapKeys : demogViewKeys,
-    sortKeys: "Area Name",
-    tooltipKeys: {
-      "Area Name": "Name",
-      FIPS: "FIPS",
-    },
-  },
+  // {
+  //   layer: "Counties",
+  //   tileset: "cpr2024.47ns3kc2",
+  //   endpoint: "66c3a44c698c0f0008ae926b",
+  //   tileId: "GEOID",
+  //   dataId: "FIPS",
+  //   sortKeys: "Area Name",
+  //   filterKeys: [...view === 'map' ? mapKeys : demogViewKeys, "Agricultural Use"],
+  //   tooltipKeys: {
+  //     "Area Name": "Name",
+  //     GEOID: "GEOID",
+  //   },
+  // },
+  // {
+  //   layer: "School Districts",
+  //   tileset: "cpr2024.5i4j8yha",
+  //   endpoint: "66c3a4e0698c0f0008ae926c",
+  //   tileId: "FIPS",
+  //   dataId: "FIPS",
+  //   filterKeys: view === 'map' ? mapKeys : demogViewKeys,
+  //   sortKeys: "Area Name",
+  //   tooltipKeys: {
+  //     "Area Name": "Name",
+  //     FIPS: "FIPS",
+  //   },
+  // },
   {
     layer: "Tracts",
     tileset: "cpr2024.0n14fhc6",
-    endpoint: "66c3a573698c0f0008ae926d",
+    endpoint: "6744f2bbdb91810008024956",
     tileId: "GEOID",
     dataId: "GEOID",
     filterKeys: view === 'map' ? mapKeys : demogViewKeys,
@@ -226,26 +226,26 @@ export const getMapConfig = (view: string): {
       GEOID: "GEOID",
     },
   },
-  {
-    layer: "Sections",
-    tileset: "cpr2024.atj2mdo6",
-    endpoint: "66c3a5be698c0f0008ae926e",
-    tileId: "CO_MTRS",
-    dataId: "comtrs",
-    sortKeys: "comtrs",
-    filterKeys: view === 'map' ? mapKeys : demogViewKeys,
-    tooltipKeys: { NAMELSAD: "Name", REGIONNAME: "Region", comtrs: "CO_MTRS" },
-  },
-  {
-    layer: "Zip Codes",
-    tileset: "cpr2024.3w98sm2d",
-    endpoint: "66c3a63a698c0f0008ae926f",
-    tileId: "ZCTA5CE20",
-    dataId: "ZCTA5CE20",
-    sortKeys: "ZCTA5CE20",
-    filterKeys: view === 'map' ? mapKeys : demogViewKeys,
-    tooltipKeys: { ZCTA5CE20: "Zip Code", USPS_ZIP_PREF_CITY: "City" },
-  },
+  // {
+  //   layer: "Sections",
+  //   tileset: "cpr2024.atj2mdo6",
+  //   endpoint: "66c3a5be698c0f0008ae926e",
+  //   tileId: "CO_MTRS",
+  //   dataId: "comtrs",
+  //   sortKeys: "comtrs",
+  //   filterKeys: view === 'map' ? mapKeys : demogViewKeys,
+  //   tooltipKeys: { NAMELSAD: "Name", REGIONNAME: "Region", comtrs: "CO_MTRS" },
+  // },
+  // {
+  //   layer: "Zip Codes",
+  //   tileset: "cpr2024.3w98sm2d",
+  //   endpoint: "66c3a63a698c0f0008ae926f",
+  //   tileId: "ZCTA5CE20",
+  //   dataId: "ZCTA5CE20",
+  //   sortKeys: "ZCTA5CE20",
+  //   filterKeys: view === 'map' ? mapKeys : demogViewKeys,
+  //   tooltipKeys: { ZCTA5CE20: "Zip Code", USPS_ZIP_PREF_CITY: "City" },
+  // },
 ];
 
 export const getMapConfigFilterSpec: (view:string) => FilterSpec = (view) => ({

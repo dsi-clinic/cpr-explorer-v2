@@ -59,7 +59,7 @@ export const RangeSlider: React.FC<{
             getAriaLabel={() => spec.label}
             value={state?.value as number}
             // TODO change this to part of spec
-            valueLabelFormat={(value) => wholePercentFormatter(+value)}
+            valueLabelFormat={(value) => wholePercentFormatter(+value/100)}
             // @ts-ignore
             color={active ? "primary" : "default"}
             min={min}

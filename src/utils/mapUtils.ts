@@ -84,7 +84,7 @@ export const getScaleQuintile = (
     const entryId = row.properties[geoid];
     // @ts-ignore
     const entryValue = mappedData[entryId];
-    if (entryValue === undefined) {
+    if (!entryValue) {
       return [0, 0, 0, 0];
     }
     return d3Scale(entryValue);

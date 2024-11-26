@@ -41,7 +41,7 @@ export const MapTooltip: React.FC<{
             <ListItem key={key}>
               <Typography component="p">
                 <b>{value || "Data"}:</b>{" "}
-                {!tooltip?.data?.[key]
+                {!!tooltip?.data?.[key]
                   ? config?.tooltipFormatter?.(tooltip?.data?.[key])  || tooltip?.data?.[key]?.toLocaleString()
                   : "N/A"}
               </Typography>

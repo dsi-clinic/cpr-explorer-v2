@@ -20,6 +20,7 @@ Bibtex for citation managers such as Zotero:
 }
 `
 export const dataSources = `
+Revision: 11-2024-WORK-IN-PROGRESS
 
 Data Sources
 --
@@ -28,6 +29,10 @@ CalPIP Home - California Pesticide Information Portal [WWW Document], 2024. URL 
 Pesticide Use Reporting [WWW Document], 2022. URL https://www.cdpr.ca.gov/docs/pur/purmain.htm (accessed 9.5.24).
 Social Explorer - Tables - ACS 2021 (5-Year Estimates) [WWW Document], 2021. . Social Explorer. URL https://www.socialexplorer.com/explore-maps (accessed 9.5.24).
 US Census Bureau, 2020. TIGER/Line Shapefiles [WWW Document]. Census.gov. URL https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html (accessed 9.5.24).
+
+Errata 
+--
+Please note that data downloads prior to revision [11-2024-WORK-IN-PROGRESS] may contain overestimtions in the "lbs_prd_used" column.
 `
 export const dataDescription = {
 map: `

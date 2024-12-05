@@ -29,10 +29,13 @@ export const Legend: React.FC<{
   onChange?: (value: string) => void;
   options?: string[];
 }> = ({ title, colors, breaks, onChange, options }) => {
+  const breaksAreUndefined = breaks.some(
+    (breakPoint) => undefined === breakPoint
+  );
   const isPercent = title.includes("Percent");
-  const cleanBreaks = breaks.map(isPercent ? v => v/100 : v => v)
+  const cleanBreaks = breaks
+    .map(isPercent ? (v) => v / 100 : (v) => v)
     .map(isPercent ? percentFormatter : compactFormatter);
-    
   return (
     <Box
       component="div"
@@ -43,7 +46,10 @@ export const Legend: React.FC<{
     >
       {!!(onChange && options) ? (
         <FormControl size="small" sx={{ padding: 0, m: "0.5rem 0" }}>
-          <InputLabel id="demo-select-small-label" sx={{ background: "white", px: 1 }}>
+          <InputLabel
+            id="demo-select-small-label"
+            sx={{ background: "white", px: 1 }}
+          >
             Map Layer
           </InputLabel>
           <Select
@@ -71,43 +77,76 @@ export const Legend: React.FC<{
           {title}
         </Typography>
       )}
-      {colors.map((color, index) => (
+
+      <Box
+        component="div"
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        marginBottom="5px"
+        width="100%"
+      >
         <Box
-          key={index}
           component="div"
+          width="20px"
+          height="20px"
+          marginRight="10px"
+          sx={{
+            backgroundColor: "white",
+            border: "1px solid black",
+          }}
+        ></Box>
+        <Box
+          component={"div"}
           display="flex"
           flexDirection="row"
           alignItems="center"
-          marginBottom="5px"
+          justifyContent="start"
           width="100%"
         >
+          <Typography component="p" fontSize="0.75rem" margin="0">
+            No data or reported usage
+          </Typography>
+        </Box>
+      </Box>
+      {!breaksAreUndefined &&
+        colors.map((color, index) => (
           <Box
+            key={index}
             component="div"
-            width="20px"
-            height="20px"
-            marginRight="10px"
-            sx={{
-              backgroundColor: color,
-            }}
-          ></Box>
-          <Box
-            component={"div"}
             display="flex"
             flexDirection="row"
             alignItems="center"
-            justifyContent="start"
+            marginBottom="5px"
             width="100%"
           >
-            <Typography component="p" fontSize="0.75rem" margin="0">
-              {index === 0
-                ? `< ${cleanBreaks[0]}`
-                : index === colors.length - 1
-                ? `≥ ${cleanBreaks[cleanBreaks.length - 1]}`
-                : `${cleanBreaks[index - 1]} - ${cleanBreaks[index]}`}
-            </Typography>
+            <Box
+              component="div"
+              width="20px"
+              height="20px"
+              marginRight="10px"
+              sx={{
+                backgroundColor: color,
+              }}
+            ></Box>
+            <Box
+              component={"div"}
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              justifyContent="start"
+              width="100%"
+            >
+              <Typography component="p" fontSize="0.75rem" margin="0">
+                {index === 0
+                  ? `< ${cleanBreaks[0]}`
+                  : index === colors.length - 1
+                  ? `≥ ${cleanBreaks[cleanBreaks.length - 1]}`
+                  : `${cleanBreaks[index - 1]} - ${cleanBreaks[index]}`}
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-      ))}
+        ))}
     </Box>
   );
 };

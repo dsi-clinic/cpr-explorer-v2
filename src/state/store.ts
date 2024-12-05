@@ -288,11 +288,17 @@ export const useStore = create<State>(
       }
 
       const response = await fetch(url);
-
       if (response.ok) {
         const buffer = await response.arrayBuffer();
         staticData = unpack(buffer as Buffer);
         if (get().view === "timeseries") {
+          if (!staticData.length){
+            const retryResponse = await fetch(url.replace("format=msgpack", "format=json"));
+            if (retryResponse.ok) {
+              const retryData = await retryResponse.json();
+              staticData = retryData;
+            }
+          }
           const config = timeseriesViews.find(
             (view) => view.label === get().timeseriesType
           );

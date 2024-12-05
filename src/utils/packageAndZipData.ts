@@ -1,4 +1,4 @@
-import { dataDescription, license } from "../config/docs."
+import { dataDescription, errata, license } from "../config/docs."
 import { unparse } from "papaparse";
 import { downloadZip } from "client-zip"
 import { FilterState } from "../types/state";
@@ -47,6 +47,11 @@ export const packageAndZipData = async (
     lastModified: new Date(),
     input: dataDescription[view as keyof typeof dataDescription]
   }
+  const errataOutput = {
+    name: "errata.txt",
+    lastModified: new Date(),
+    input: errata
+  }
   const dataOutput = {
     name: "data.csv",
     lastModified: new Date(),
@@ -71,7 +76,8 @@ export const packageAndZipData = async (
     docsOutput,
     dataOutput,
     licenseOutput,
-    filtersOutput
+    filtersOutput,
+    errataOutput
   ]).blob()
 
   // make and click a temporary link to download the Blob
@@ -130,6 +136,19 @@ export const excelExportData = async (
   infoSheet.addRow(["License"])
   infoSheet.addRow([license])
 
+  // add "About this data" to A1 on the first sheet
+  infoSheet.addRow([])
+  infoSheet.addRow(["Errata"])
+  const errataInfo = (errata||'').split("\n")
+  errataInfo.forEach(row => {
+    if (row.includes(":") && row.includes("-")){
+      const parts = row.replace("- ", "").split(":").map(f => f.trim())
+      infoSheet.addRow(parts)
+    } else if (row == '--' || !row.length) {
+    } else {
+      infoSheet.addRow([row])
+    }
+  })
 
   // add the data to the second sheet
   dataSheet.addRows([Object.keys(data[0])])

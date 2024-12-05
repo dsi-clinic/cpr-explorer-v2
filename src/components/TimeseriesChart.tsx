@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { Line, LinePath } from "@visx/shape";
 import { curveMonotoneX } from "@visx/curve";
 import { scaleTime, scaleLinear } from "@visx/scale";
@@ -69,6 +69,10 @@ export default withTooltip<LineChartProps>(
     const margin = { top: 20, right: 20, bottom: 50, left: 60 };
     const xMax = width - margin.left - margin.right;
     const yMax = height - margin.top - margin.bottom;
+
+    useEffect(() => {
+      setCurrentDataCol(dataCol[0])
+    }, [dataCol])
 
     const { cleanedData, numberOfXTicks, keys, xScale, yScale, numberOfMonths } =
       useMemo(() => {
@@ -313,12 +317,15 @@ export default withTooltip<LineChartProps>(
           top={0}
           left={margin.left + 5}
           sx={{
-            background: "white",
+            background: "rgba(255,255,255,0.8)",
             p: 1,
           }}
           component={"div"}
         >
-          <FormControl size="small" sx={{ padding: 0, m: "0.5rem 0" }}>
+            <Typography fontWeight="bold">
+            {axisLabels?.[currentDataCol as keyof typeof axisLabels] || ''}
+            </Typography>
+          {/* <FormControl size="small" sx={{ padding: 0, m: "0.5rem 0" }}>
             <InputLabel
               id="demo-select-small-label"
               sx={{ background: "white", px: 1 }}
@@ -344,7 +351,7 @@ export default withTooltip<LineChartProps>(
                 </MenuItem>
               ))}
             </Select>
-          </FormControl>
+          </FormControl> */}
         </Box>
       </>
     );

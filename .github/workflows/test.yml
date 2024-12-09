@@ -33,3 +33,8 @@ jobs:
       - name: Commit Test Results
         run: |
           git config --local user.email "Updated test results"
+          git config --local user.name "github-actions"
+          git add README.md test_results.json
+          git commit -m "Update test results"
+          git push
+          

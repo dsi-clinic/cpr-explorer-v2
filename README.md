@@ -6,6 +6,24 @@
 4. run `docker-compose up dev` to develop
 5. run `docker-compose up build` to build (outputs to `dist` folder)
 
+## Latest Test Results
+The expected deviation from default data is shown as a percentage.
+
+<!-- LATEST TEST HERE -->
+
+| Test Name | Deviation |
+|-----------|-----------|
+| Tract Sum Total SUM_LBS_CHEMICAL | 0.1% |
+| Tract Sum Total SUM_LBS_PRODUCT | 0.144% |
+| School Districts Sum Total SUM_LBS_CHEMICAL | 0.1% |
+| School Districts Sum Total SUM_LBS_PRODUCT | 0.144% |
+| Zip Sum Total SUM_LBS_CHEMICAL | -1.914% |
+| Zip Sum Total SUM_LBS_PRODUCT | -2.099% |
+| Townships Total SUM_LBS_CHEMICAL | 0.1% |
+| Townships Total SUM_LBS_PRODUCT | 0.144% |
+| Section Total SUM_LBS_CHEMICAL | 0.1% |
+| Section Total SUM_LBS_PRODUCT | 0.144% |
+<!-- END LATEST TEST -->
 ## env requirements
 ```
 VITE_DATA_ENDPOINT = ... // Open Spatial Lab NECTR endpoint

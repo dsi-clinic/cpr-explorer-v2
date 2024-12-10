@@ -157,7 +157,7 @@ export default withTooltip<LineChartProps>(
         const increase = day > 15 ? 2: 1
         const month = nearest.getMonth() + increase;
         const year = nearest.getFullYear();
-        const monthyear = `${year}-${month.toString().padStart(2, "0")}`;
+        const monthyear = month === 13 ? `${year+1}-01`:`${year}-${month.toString().padStart(2, "0")}`;
         const monthData = data
           .filter((d) => d[dateCol] === monthyear)
           .sort((a, b) => `${a[keyCol]}`.localeCompare(`${b[keyCol]}`))

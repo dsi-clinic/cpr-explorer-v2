@@ -72,7 +72,7 @@ export const getScaleQuintile = (
   const colorsRgb = colors.map(hexToRgb);
   const d3Scale = d3.scaleQuantile(
     // @ts-ignore
-    data.map((d) => d[accessor]),
+    data.map((d) => d[accessor]).filter(Boolean),
     colorsRgb
   );
   const mappedData = {};

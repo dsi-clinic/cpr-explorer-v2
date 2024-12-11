@@ -2,6 +2,7 @@ import { dataDescription, errata, license } from "../config/docs."
 import { unparse } from "papaparse";
 import { downloadZip } from "client-zip"
 import { FilterState } from "../types/state";
+import * as ExcelJS from "exceljs";
 
 const cleanFitlersText = (view: string, filters: Partial<FilterState>[], info?: Record<string,any>) => {
   let filterText = `Data Filters\n--\nView: ${view}\n`
@@ -94,7 +95,7 @@ export const excelExportData = async (
   data: Array<Record<string,any>>,
   info?: Record<string,any>
 ) => {
-  const ExcelJS = await import("exceljs");
+  // const ExcelJS = await import("exceljs");
   const workbook = new ExcelJS.Workbook();
   workbook.creator = 'Pesticide Data Explorer';
   workbook.created = new Date();

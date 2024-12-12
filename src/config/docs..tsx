@@ -45,11 +45,10 @@ export const dataDescription = {
 map: `
 Data columns
 --
-- GEOID: Geographic Identifier [Census tracts only]
+- GEOID: Geographic Identifier [Census tracts and ZIP codes (ZCTA) only]
 - FIPS: Federal Information Processing Standards [Counties, School Districts]
 - TownshipRange: Township Range [Townships]
 - comtrs: County-Municipality-Section [Sections]
-- ZCTA5CE20: ZIP Code Tabulation Area [ZIP Codes]
 - lbs_chm_used: Pounds of active ingredient chemcial used
 - lbs_prd_used: Pounds of product used
 - ai_intensity: Pounds of active ingredient per square mile of total area (not just growing area)

@@ -241,10 +241,10 @@ export const getMapConfig = (view: string): {
     tileset: "cpr2024.3w98sm2d",
     endpoint: "674516220507860008cda24c",
     tileId: "ZCTA5CE20",
-    dataId: "GEOID",
-    sortKeys: "GEOID",
+    dataId: "Zip Code",
+    sortKeys: "Zip Code",
     filterKeys: view === 'map' ? mapKeys : demogViewKeys,
-    tooltipKeys: { ZCTA5CE20: "Zip Code", USPS_ZIP_PREF_CITY: "City" },
+    tooltipKeys: { 'Zip Code': "Zip Code", USPS_ZIP_PREF_CITY: "City" },
   },
 ];
 

@@ -180,277 +180,301 @@ const defaultStepProps = {
 const getSteps: (StepButtons: React.FC, isDesktop: boolean) => Step[] = (
   StepButtons,
   isDesktop
-) => [
-  {
-    // 0
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Let's begin our tour
-        </Typography>
-        <Typography variant="body1">
-          Click "Next" to proceed to the next step, and click "Back" to return
-          to the previous step. At any time, cick on the background or the "x"
-          in the top right to exit the tour.
-          <br />
-          <br />
-          You can restart the tour at any time by clicking the "Quickstart"
-          button on the top of the application.
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    placement: "center",
-    target: "body",
-    ...defaultStepProps,
-  },
-  {
-    // 1
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Selecting Data Filters
-        </Typography>
-        <Typography variant="body1">
-          This tool allows you to filter data by a variety of characteristics,
-          like geography, data, and pesticide active ingredients.
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    placement: isDesktop ? "right" : "center",
-    target: "#filter-controls",
-    ...defaultStepProps,
-  },
-  {
-    // 2
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Selecting Data Filters
-        </Typography>
-        <Typography variant="body1">
-          {isDesktop
-            ? `To start, change the geography to "Counties"`
-            : `Click next to change the geography to "Counties"`}
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    spotlightClicks: true,
-    placement: isDesktop ? "right" : "center",
-    spotlightPadding: 40,
-    target: "#filter-controls",
-    ...defaultStepProps,
-  },
-  {
-    // 3
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Selecting Data Filters
-        </Typography>
-        <Typography variant="body1">
-          Next change the date range.{" "}
-          {isDesktop
-            ? `Try changing the year to start in 2021.`
-            : `Click next to change the year to start in 2021.`}
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    spotlightClicks: true,
-    placement: isDesktop ? "right" : "auto",
-    spotlightPadding: 40,
-    target: "#filter-controls",
-    ...defaultStepProps,
-  },
-  {
-    // 4
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Selecting Data Filters
-        </Typography>
-        <Typography variant="body1">
-          {isDesktop ? (
-            <>
-              To apply your selections, click "Apply Changes" at the top of the
-              box, or on the map/chart when you use the application later.
-              <br />
-              <br />
-              You can automatically apply changes in your selections by clicking
-              the checkbox labeled "automatically Apply Changes"
-            </>
-          ) : (
-            <>
-              To apply your selections, you can select "Apply Changes" at the
-              top of the box, or on the map/chart when you use the application
-              later. Select next to continue.
-              <br />
-              <br />
-              You can automatically apply changes in your selections by clicking
-              the checkbox labeled "automatically Apply Changes"
-            </>
-          )}
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    spotlightClicks: true,
-    placement: isDesktop ? "right" : "auto",
-    target: "#filter-controls",
-    ...defaultStepProps,
-  },
-  {
-    // 5
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Updating your data view
-        </Typography>
-        <Typography variant="body1">
-          After loading, you should see the map update to show pesticide use
-          based on your selections.
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    target: "#data-view",
-    ...defaultStepProps,
+) => {
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  // if is safari, add css to the page
+  if (isSafari) {
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .__floater__open {
+        transition: transform 0s !important;
+      }
+      .__floater__open[x-placement="bottom-start"] {
+        transform: translateX(-50%) !important;
+        left: 50vw !important;
+        top: 50vh !important;
+      }
+      .__floater__open[x-placement="top"] {
+        transform: translateX(-50%) !important;
+        left: 50vw !important;
+        top: 10vh !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
 
-    placement: isDesktop ? "right" : "auto",
-  },
-  {
-    // 6
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Changing the data view
-        </Typography>
-        <Typography variant="body1">
-          Next, let's look at a different data view.{" "}
-          {isDesktop
-            ? `Click on "Use Over Time" on
+  return [
+    {
+      // 0
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Let's begin our tour
+          </Typography>
+          <Typography variant="body1">
+            Click "Next" to proceed to the next step, and click "Back" to return
+            to the previous step. At any time, cick on the background or the "x"
+            in the top right to exit the tour.
+            <br />
+            <br />
+            You can restart the tour at any time by clicking the "Quickstart"
+            button on the top of the application.
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      placement: "center",
+      target: "body",
+      ...defaultStepProps,
+    },
+    {
+      // 1
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Selecting Data Filters
+          </Typography>
+          <Typography variant="body1">
+            This tool allows you to filter data by a variety of characteristics,
+            like geography, data, and pesticide active ingredients.
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      placement: isDesktop ? "right" : "center",
+      target: "#filter-controls",
+      ...defaultStepProps,
+    },
+    {
+      // 2
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Selecting Data Filters
+          </Typography>
+          <Typography variant="body1">
+            {isDesktop
+              ? `To start, change the geography to "Counties"`
+              : `Click next to change the geography to "Counties"`}
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      spotlightClicks: true,
+      placement: isDesktop ? "right" : "center",
+      spotlightPadding: 40,
+      target: "#filter-controls",
+      ...defaultStepProps,
+    },
+    {
+      // 3
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Selecting Data Filters
+          </Typography>
+          <Typography variant="body1">
+            Next change the date range.{" "}
+            {isDesktop
+              ? `Try changing the year to start in 2021.`
+              : `Click next to change the year to start in 2021.`}
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      spotlightClicks: true,
+      placement: isDesktop ? "right" : "auto",
+      spotlightPadding: 40,
+      target: "#filter-controls",
+      ...defaultStepProps,
+    },
+    {
+      // 4
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Selecting Data Filters
+          </Typography>
+          <Typography variant="body1">
+            {isDesktop ? (
+              <>
+                To apply your selections, click "Apply Changes" at the top of
+                the box, or on the map/chart when you use the application later.
+                <br />
+                <br />
+                You can automatically apply changes in your selections by
+                clicking the checkbox labeled "automatically Apply Changes"
+              </>
+            ) : (
+              <>
+                To apply your selections, you can select "Apply Changes" at the
+                top of the box, or on the map/chart when you use the application
+                later. Select next to continue.
+                <br />
+                <br />
+                You can automatically apply changes in your selections by
+                clicking the checkbox labeled "automatically Apply Changes"
+              </>
+            )}
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      spotlightClicks: true,
+      placement: isDesktop ? "right" : "auto",
+      target: "#filter-controls",
+      ...defaultStepProps,
+    },
+    {
+      // 5
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Updating your data view
+          </Typography>
+          <Typography variant="body1">
+            After loading, you should see the map update to show pesticide use
+            based on your selections.
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      target: "#data-view",
+      ...defaultStepProps,
+
+      placement: isDesktop ? "right" : "auto",
+    },
+    {
+      // 6
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Changing the data view
+          </Typography>
+          <Typography variant="body1">
+            Next, let's look at a different data view.{" "}
+            {isDesktop
+              ? `Click on "Use Over Time" on
           the navigation bar above.`
-            : `Click next to change the view to "Use Over Time"`}
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    spotlightClicks: true,
-    target: "#nav-container",
-    placement: "bottom",
-    ...defaultStepProps,
-  },
-  {
-    // 7
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Changing the data view
-        </Typography>
-        <Typography variant="body1">
-          Whenever possible, the settings from one data view will carry over to
-          another. In this case, our date range (2021-01 to 2022-12) carried
-          over from the map view.
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    spotlightClicks: true,
-    target: "#data-view",
-    placement: isDesktop ? "bottom" : "center",
-    ...defaultStepProps,
-  },
-  {
-    // 8
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Timeseries data view
-        </Typography>
-        <Typography variant="body1">
-          This view enables you to see pesticide use over time. You can see
-          usage over time for different categories, like active ingredient,
-          pesticide class, or pesticide type.
-          <br />
-          <br />
-          You must select at least one option in your selected category to see
-          data. You can choose up to 10 options to compare.
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    target: "#data-view",
-    placement: isDesktop ? "bottom" : "center",
-    ...defaultStepProps,
-  },
-  {
-    // 8
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Demographic Comparison View
-        </Typography>
-        <Typography variant="body1">
-          The final view allows you to see pesticide use side-by-side with
-          demographic data from the US Census American Community Survey.
-          <br />
-          <br />
-          Since we last looked at Microbial and Organic pesticide use on the
-          timeseries view and Counties on the map view, this data visualization
-          automatically filters to those selections.
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    placement: isDesktop ? "bottom" : "center",
-    target: "#data-view",
-    ...defaultStepProps,
-  },
-  {
-    // 9
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Download Data, Table View, and Sharing Data
-        </Typography>
-        <Typography variant="body1">
-          Last, you can download data, view data in a table, save your
-          selections to return later, and share your selections with others.
-          <br />
-          <br />
-          Data can be download as an Excel file or CSV, and includes your
-          selected filters, data dictionary, and data license.
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    placement: "top",
-    target: "#meta-data-stuff",
-    ...defaultStepProps,
-  },
-  {
-    // 10
-    content: (
-      <Box>
-        <Typography component="h3" mb={2} fontWeight={"bold"}>
-          Thank you!
-        </Typography>
-        <Typography variant="body1">
-          Thank you for exploring this tool! To learn more about the data and
-          methodology, see the "About" section in the top right of the
-          application.
-        </Typography>
-        <StepButtons />
-      </Box>
-    ),
-    placement: "center",
-    target: "body",
-    ...defaultStepProps,
-  },
-];
+              : `Click next to change the view to "Use Over Time"`}
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      spotlightClicks: true,
+      target: "#nav-container",
+      placement: "bottom",
+      ...defaultStepProps,
+    },
+    {
+      // 7
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Changing the data view
+          </Typography>
+          <Typography variant="body1">
+            Whenever possible, the settings from one data view will carry over
+            to another. In this case, our date range (2021-01 to 2022-12)
+            carried over from the map view.
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      spotlightClicks: true,
+      target: "#data-view",
+      placement: isDesktop ? "bottom" : "center",
+      ...defaultStepProps,
+    },
+    {
+      // 8
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Timeseries data view
+          </Typography>
+          <Typography variant="body1">
+            This view enables you to see pesticide use over time. You can see
+            usage over time for different categories, like active ingredient,
+            pesticide class, or pesticide type.
+            <br />
+            <br />
+            You must select at least one option in your selected category to see
+            data. You can choose up to 10 options to compare.
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      target: "#data-view",
+      placement: isDesktop ? "bottom" : "center",
+      ...defaultStepProps,
+    },
+    {
+      // 8
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Demographic Comparison View
+          </Typography>
+          <Typography variant="body1">
+            The final view allows you to see pesticide use side-by-side with
+            demographic data from the US Census American Community Survey.
+            <br />
+            <br />
+            Since we last looked at Microbial and Organic pesticide use on the
+            timeseries view and Counties on the map view, this data
+            visualization automatically filters to those selections.
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      placement: isDesktop ? "bottom" : "center",
+      target: "#data-view",
+      ...defaultStepProps,
+    },
+    {
+      // 9
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Download Data, Table View, and Sharing Data
+          </Typography>
+          <Typography variant="body1">
+            Last, you can download data, view data in a table, save your
+            selections to return later, and share your selections with others.
+            <br />
+            <br />
+            Data can be download as an Excel file or CSV, and includes your
+            selected filters, data dictionary, and data license.
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      placement: "top",
+      target: "#meta-data-stuff",
+      ...defaultStepProps,
+    },
+    {
+      // 10
+      content: (
+        <Box>
+          <Typography component="h3" mb={2} fontWeight={"bold"}>
+            Thank you!
+          </Typography>
+          <Typography variant="body1">
+            Thank you for exploring this tool! To learn more about the data and
+            methodology, see the "About" section in the top right of the
+            application.
+          </Typography>
+          <StepButtons />
+        </Box>
+      ),
+      placement: "center",
+      target: "body",
+      ...defaultStepProps,
+    },
+  ];
+};
 
 const stepLength = 11;
 
@@ -615,19 +639,25 @@ export const Quickstart: React.FC<{
                   </li>
                 </ul>
                 To get started, try out our{" "}
-                <TabButton onClick={handleClickStart}
+                <TabButton
+                  onClick={handleClickStart}
                   sx={{
                     color: "white",
-                    backgroundColor: theme.palette.primary.main,  
+                    backgroundColor: theme.palette.primary.main,
                   }}
                 >
                   application tour
                 </TabButton>
               </Typography>
               <Typography variant="body2" fontStyle={"italic"} mt={2}>
-              Presented by the Open Spatial Lab at the University of Chicago Data Science Institute in collaboration with Californians for Pesticide Reform (CPR) and Pesticide Action & Agroecology Network (PAN).
-              <br/>
-              Data are sourced from the California Department of Pesticide Regulation (CDPR) California Pesticide Information Portal project (CalPIP) and the US Census Bureau.
+                Presented by the Open Spatial Lab at the University of Chicago
+                Data Science Institute in collaboration with Californians for
+                Pesticide Reform (CPR) and Pesticide Action & Agroecology
+                Network (PAN).
+                <br />
+                Data are sourced from the California Department of Pesticide
+                Regulation (CDPR) California Pesticide Information Portal
+                project (CalPIP) and the US Census Bureau.
               </Typography>
             </Box>
           </Box>

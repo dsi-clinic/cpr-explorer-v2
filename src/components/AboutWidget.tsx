@@ -182,10 +182,10 @@ export const AboutWidget = () => {
           About
         </Typography>
         <Typography variant="body1">
-          The California Pesticide Use Data Explorer is a one-of-a-kind tool
+          The California People and Pesticides Explorer is a one-of-a-kind tool
           that makes it easier to view, map, and download California&#x27;s
           pesticide use report data, and serves as a resource for scientists,
-          growers, advocates, and the general public. This interactive data tool
+          growers, advocates, and the general public.  This interactive data tool
           links pesticide use data with community demographic data and makes
           data available at common census geographies, from townships to zip
           codes and counties.
@@ -228,15 +228,27 @@ export const AboutWidget = () => {
           the views of the Foundations.
         </Typography>
         <LogoContainer>
-            <a href="https://www.panna.org/" rel="noopener noreferrer" target="_blank">
-              <img src="/assets/pan-logo.png" alt="Logo for PANNA"/>
-            </a>
-            <a href="https://www.pesticidereform.org/" rel="noopener noreferrer" target="_blank">
-              <img src="/assets/CPR Logo.png" alt="Logo for CPR"/>
-            </a>
-            <a href="https://datascience.uchicago.edu/" rel="noopener noreferrer" target="_blank">
-              <img src="/assets/dsi-logo.png" alt="Logo for UChicago DSI"/>
-            </a>
+          <a
+            href="https://www.panna.org/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img src="/assets/pan-logo.png" alt="Logo for PANNA" />
+          </a>
+          <a
+            href="https://www.pesticidereform.org/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img src="/assets/CPR Logo.png" alt="Logo for CPR" />
+          </a>
+          <a
+            href="https://datascience.uchicago.edu/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img src="/assets/dsi-logo.png" alt="Logo for UChicago DSI" />
+          </a>
         </LogoContainer>
 
         <Typography component={"h4"} fontWeight={"bold"}>
@@ -255,203 +267,195 @@ export const AboutWidget = () => {
           present day. PUR data for this tool was accessed from the{" "}
           <strong>
             {" "}
-            <a href="https://calpip.cdpr.ca.gov/main.cfm">
+            <a target="_blank" href="https://calpip.cdpr.ca.gov/main.cfm">
               California Pesticide Information Portal (CalPIP).
             </a>{" "}
           </strong>{" "}
-          PUR data are managed and collected by California&#x27;s Department of
+          PUR data are managed and collected by California's Department of
           Pesticide Regulation, and it is updated about once per year. More
           information is available from{" "}
-          <strong>
-            {" "}
-            <a href="https://www.cdpr.ca.gov/docs/pur/purmain.htm">
-              CA DPR
-            </a>{" "}
-          </strong>
-          . Data on adjuvant use is not made publicly available.
+          <a
+            target="_blank"
+            href="https://www.cdpr.ca.gov/docs/pur/purmain.htm"
+          >
+            CA DPR
+          </a>
+          . Data on adjuvant use is not made publicly available. The California
+          PUR data are updated in this tool within six months of release by DPR.
           <br />
           <br />
           This interactive data tool enables users to filter or summarize
           publicly-available California PUR data based on the following
           parameters:
           <ul>
-            <li>Start and end month</li>
             <li>
-              Active ingredients, chemical class, and use type
+              Geography (townships, counties, school districts, tracts,
+              sections, zip codes)
             </li>
-            <li>Site / crop produced</li>
-            <li>Pesticide product</li>
+            <li>Agricultural or Non-Agricultural use</li>
+            <li>Date range</li>
+            <li>Crop or site</li>
             <li>Application method (aerial, ground, fumigation, or other)</li>
-            <li>Agricultural or non-agricultural use</li>
-            <li>County</li>
-            {/* TODO Demography */}
+            <li>
+              Chemical and Product Information: (chemical class, active
+              ingredients, product and use type)
+            </li>
+            <li>
+              Health/Environmental Impact: (carcinogen, cholinesterase
+              inhibitor, groundwater contaminant, reproductive toxin, restricted
+              material, toxic air contaminant)
+            </li>
           </ul>
-          PUR data was accessed in July 2024. Pesticide product, active
-          ingredients, and site lists for filtering were obtained from the PUR
-          2022 data release files. 
-          {/* TODO Describe source for classifications */}
           <br />
+          <Typography component={"h5"} fontWeight={"bold"}>
+            Pesticide Category Data
+          </Typography>
           <br />
-        </Typography>
-
-        <Typography component={"h5"} fontWeight={"bold"}>
-          Pesticide Category Data
-        </Typography>
-        <Typography variant="body1">
-          The pesticide category data includes the following categorizations:
-          {/* Major Category, Chemical Class, Use Type, Health/Environmental Impact, Risk Category */}
+          The pesticide category data include the following categorizations:
           <ul>
             <li>
-              <strong>Chemical Class</strong>: The major category of the active
+              <b>Chemical Class</b>: The major category of the active
               ingredient, such as amide, inorganic, or oil
             </li>
-            {/* <li>
-              <strong>Chemical Class</strong>: The chemical class of the active
-              ingredient, a more specific list of major categories
-            </li> */}
             <li>
-              <strong>Use Type</strong>: The use type of the active ingredient,
-              such as fungicide or insecticide
+              <b>Use Type</b>: The use type of the active ingredient, such as
+              fungicide or insecticide
             </li>
             <li>
-              <strong>Health/Environmental Impact</strong>: The health and
-              environmental impact of the active ingredient, such as carcinogen
-              or reproductive health impact
+              <b>Health/Environmental Impact</b>: The health and environmental
+              impact of the active ingredient, such as carcinogen or
+              reproductive health impact
             </li>
-            {/* <li>
-              <strong>Risk Category</strong>: The risk category of the active
-              ingredient: high, low, or other
-            </li> */}
           </ul>
+          <br />
           These categories help filter and summarize the data based on the
-          caracteristics of the active ingredients.
-        </Typography>
-        <Typography component={"h5"} fontWeight={"bold"}>
-          Spatial Data (GIS)
-        </Typography>
-        <Typography variant="body1">
+          characteristics of the active ingredients.
+          <br />
+          <br />
+          <Typography component={"h5"} fontWeight={"bold"}>
+            Spatial Data (GIS)
+          </Typography>
+          <br />
           Spatial data enables users to query data based on the following areas,
           or spatial units:
+          <br />
           <ul>
-            <li>
-              Census Administrative Boundaries: American Community Survey 2021
-              and 2020 boundaries, via census.gov
-            </li>
+            <li>Townships</li>
             <li>Counties</li>
-            <li>Zip Codes (Zip Code Tabulation Areas/ZCTA)</li>
-            <li>Census Tracts</li>
             <li>
               School districts: elementary, secondary, and unified school
               districts
             </li>
+            <li>Census Tracts</li>
+            <li>Sections</li>
+            <li>Zip Codes (Zip Code Tabulation Areas/ZCTA)</li>
           </ul>
-        </Typography>
-        <Typography component={"h5"} fontWeight={"bold"}>
-          <b>Community Data:</b>
-        </Typography>
-        <Typography variant="body1">
+          <br />
+          <Typography component={"h5"} fontWeight={"bold"}>
+            Demographic Data:
+          </Typography>
+          <br />
           Community and demographic data allow users to better understand the
           impact of pesticide use on different populations locally and across
-          the state. Demographic data available to filter includes:
-          <ul>
-            <li>
-              {" "}
-              <strong>Percent Black or African American</strong>: American
-              Community Survey (ACS) 2021 5-Year Average, non-Hispanic Black or
-              African American Population divided by Total Population
-            </li>
-            <li>
-              <strong>Percent Hispanic or Latino</strong>: American Community
-              Survey (ACS) 2021 5-Year Average, Hispanic or Latino Population
-              divided by Total Population
-            </li>
-            <li>
-              <strong>Percent White (non-Hispanic)</strong>: American Community
-              Survey (ACS) 2021 5-Year Average, non-Hispanic White Population
-              divided by Total Population
-            </li>
-            <li>
-              <strong>Percent Asian (non-Hispanic)</strong>: American Community
-              Survey (ACS) 2021 5-Year Average, non-Hispanic Asian Population
-              divided by Total Population
-            </li>
-            <li>
-              <strong>Percent American Indian and Alaska Native (non-Hispanic)</strong>: American Community
-              Survey (ACS) 2021 5-Year Average, non-Hispanic American Indian and Alaska Native Population
-              divided by Total Population
-            </li>
-            <li>
-              <strong>Percent Native Hawaiian and Other Pacific Islander (non-Hispanic)</strong>: American Community
-              Survey (ACS) 2021 5-Year Average, non-Hispanic Native Hawaiian and Other Pacific Islander Population
-              divided by Total Population
-            </li>
-            <li>
-              <strong>Median Household Income:</strong> American Community
-              Survey (ACS) 2021 5-Year Average
-            </li>
-          </ul>
-          Additional demographic data include:
-          <ul>
-            <li>
-              <strong>Total Population:</strong> American Community Survey (ACS)
-              2021 5-Year Average
-            </li>
-            <li>
-              <strong>
-                Percent of population over 25 without a high school degree
-              </strong>
-              : American Community Survey (ACS) 2021 5-Year Average
-            </li>
-            <li>
-              <strong>
-                Percent of population over 16 working in agriculture:
-              </strong>
-              American Community Survey (ACS) 2021 5-Year Average
-            </li>
-          </ul>
-          Demographic data can be accessed through{" "}
+          the state. Demographic data can be accessed through{" "}
           <a
-            href="https://data.census.gov/"
             target="_blank"
-            rel="noopener noreferrer"
+            href="https://www.google.com/url?q=https://data.census.gov/&amp;sa=D&amp;source=editors&amp;ust=1734559247939420&amp;usg=AOvVaw3mS3ArvzDohkKeKBxiwJoN"
           >
             Census website
           </a>{" "}
           or tools like{" "}
           <a
-            href="https://www.census.gov/programs-surveys/acs/data/data-via-api.html"
             target="_blank"
-            rel="noopener noreferrer"
+            href="https://www.google.com/url?q=https://www.census.gov/programs-surveys/acs/data/data-via-api.html&amp;sa=D&amp;source=editors&amp;ust=1734559247939748&amp;usg=AOvVaw2ypK-Yb2YZF7esoqAVUlH4"
           >
             Census API
           </a>{" "}
           or{" "}
           <a
-            href="https://www.socialexplorer.com/explore-maps"
             target="_blank"
-            rel="noopener noreferrer"
+            href="https://www.google.com/url?q=https://www.socialexplorer.com/explore-maps&amp;sa=D&amp;source=editors&amp;ust=1734559247940180&amp;usg=AOvVaw0_Mvb51vbgctfJ-XRBwcYE"
           >
             Social Explorer
           </a>
-          .
-        </Typography>
-
-        <Typography component={"h5"} fontWeight={"bold"}>
-          Works Cited
-        </Typography>
-        <Typography variant="body1" className="bib">
+          . Demographic data available to filter includes:
+          <br />
+          <ul>
+            <li>
+              <b>Total Population:</b> American Community Survey (ACS) 2021
+              5-Year Average
+            </li>
+            <li>
+              <b>Percent Black or African American</b>: American Community
+              Survey (ACS) 2021 5-Year Average, non-Hispanic Black or African
+              American Population divided by Total Population
+            </li>
+            <li>
+              <b>Percent Hispanic or Latino</b>: American Community Survey (ACS)
+              2021 5-Year Average, Hispanic or Latino Population divided by
+              Total Population
+            </li>
+            <li>
+              <b>Percent White (non-Hispanic)</b>: American Community Survey
+              (ACS) 2021 5-Year Average, non-Hispanic White Population divided
+              by Total Population
+            </li>
+            <li>
+              <b>Percent Asian (non-Hispanic)</b>: American Community Survey
+              (ACS) 2021 5-Year Average, non-Hispanic Asian Population divided
+              by Total Population
+            </li>
+            <li>
+              <b>Percent American Indian and Alaska Native (non-Hispanic)</b>:
+              American Community Survey (ACS) 2021 5-Year Average, non-Hispanic
+              American Indian and Alaska Native Population divided by Total
+              Population
+            </li>
+            <li>
+              <b>
+                Percent Native Hawaiian and Other Pacific Islander
+                (non-Hispanic)
+              </b>
+              : American Community Survey (ACS) 2021 5-Year Average,
+              non-Hispanic Native Hawaiian and Other Pacific Islander Population
+              divided by Total Population
+            </li>
+            <li>
+              <b>Percent with less than High School</b>: Population over 25
+              without a high school degree, American Community Survey (ACS) 2021
+              5-Year Average
+            </li>
+            <li>
+              <b>Percent Working in Agriculture</b>: Population over 16 working
+              in agriculture, American Community Survey (ACS) 2021 5-Year
+              Average
+            </li>
+            <li>
+              <b>Median Household Income</b>:American Community Survey (ACS)
+              2021 5-Year Average
+            </li>
+          </ul>
+          <Typography component={"h5"} fontWeight={"bold"}>
+            Data References
+          </Typography>
           <ul>
             <li>
               CalPIP Home - California Pesticide Information Portal [WWW
               Document], 2024. URL{" "}
-              <a href="https://calpip.cdpr.ca.gov/main.cfm">
+              <a
+                target="_blank"
+                href="https://www.google.com/url?q=https://calpip.cdpr.ca.gov/main.cfm&amp;sa=D&amp;source=editors&amp;ust=1734559247942088&amp;usg=AOvVaw0DQdAykVxpJWY2qvrHk0Gt"
+              >
                 https://calpip.cdpr.ca.gov/main.cfm
               </a>{" "}
               (accessed 9.5.24).
             </li>
             <li>
               Pesticide Use Reporting [WWW Document], 2022, URL{" "}
-              <a href="https://www.cdpr.ca.gov/docs/pur/purmain.htm">
+              <a
+                target="_blank"
+                href="https://www.google.com/url?q=https://www.cdpr.ca.gov/docs/pur/purmain.htm&amp;sa=D&amp;source=editors&amp;ust=1734559247942635&amp;usg=AOvVaw3EwVIQ2dgTRQXciEECxLJ-"
+              >
                 https://www.cdpr.ca.gov/docs/pur/purmain.htm
               </a>{" "}
               (accessed 9.5.24).
@@ -459,7 +463,10 @@ export const AboutWidget = () => {
             <li>
               Social Explorer - Tables - ACS 2021 (5-Year Estimates) [WWW
               Document], 2021. Social Explorer. URL{" "}
-              <a href="https://www.socialexplorer.com/explore-maps">
+              <a
+                target="_blank"
+                href="https://www.google.com/url?q=https://www.socialexplorer.com/explore-maps&amp;sa=D&amp;source=editors&amp;ust=1734559247942990&amp;usg=AOvVaw0-7L5lWYvRLhGtgSXw-1VI"
+              >
                 https://www.socialexplorer.com/explore-maps
               </a>{" "}
               (accessed 9.5.24).
@@ -467,7 +474,10 @@ export const AboutWidget = () => {
             <li>
               US Census Bureau, 2020. TIGER/Line Shapefiles [WWW Document].
               Census.gov. URL{" "}
-              <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html">
+              <a
+                target="_blank"
+                href="https://www.google.com/url?q=https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html&amp;sa=D&amp;source=editors&amp;ust=1734559247965935&amp;usg=AOvVaw0f3F_GLoUYT-m0vKpPw5DI"
+              >
                 https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
               </a>{" "}
               (accessed 9.5.24).
@@ -494,7 +504,8 @@ export const AboutWidget = () => {
               <InlineCode>COUNTY_CODE</InlineCode>,{" "}
               <InlineCode>PRODUCT_CHEMICAL_PERCENT</InlineCode>,{" "}
               <InlineCode>PRODUCT_NUMBER</InlineCode>,{" "}
-              <InlineCode>SITE_CODE</InlineCode>
+              <InlineCode>SITE_CODE</InlineCode>,{" "}
+              <InlineCode>USE_NUMBER</InlineCode>{" "}
             </li>
             <li>
               Date converted to ISO format <InlineCode>YYYY-MM</InlineCode>{" "}
@@ -502,17 +513,10 @@ export const AboutWidget = () => {
               sorting and filtering
             </li>
             <li>
-              Data grouped on
-              <InlineCode>COMTRS</InlineCode>,
-              <InlineCode>AERIAL_GROUND_INDICATOR</InlineCode> ,
-              <InlineCode>AG_NONAG</InlineCode>,
-              <InlineCode>CHEMICAL_CODE</InlineCode> ,
-              <InlineCode>COUNTY_CODE</InlineCode> ,
-              <InlineCode>PRODUCT_CHEMICAL_PERCENT</InlineCode>,
-              <InlineCode>PRODUCT_NUMBER</InlineCode> ,
-              <InlineCode>SITE_CODE</InlineCode> and{" "}
-              <InlineCode>monthyear</InlineCode>
-              to optimize data size
+              Use number converted to a use_id that includes the date and
+              geographic identifier. This enhances the CalPip{" "}
+              <InlineCode>USE_NUMBER</InlineCode> column, which has collisions
+              across years.
             </li>
             <li>
               Data are joined to active ingredient classes, types, and other
@@ -520,21 +524,21 @@ export const AboutWidget = () => {
               California Department of Pesticide Regulation (DPR)
             </li>
           </ol>
-          For section-level data, no further processing is applied. For
-          TownshipRange and County data, the section data was further grouped on
-          county code and township range identifiers provided in CalPip data.
+          For section-level data, no further processing is applied.
+          <br />
           <br />
           For census geographic units, additional processing is required to
           connect the PUR data census areas. The data are processed using areal
           interpolation, a method to estimate the proportion of a section that
           falls within each census geography. This method is widely used in
           spatial data analysis to estimate the proportion of an area that falls
-          within a specific area of interest; it has been formalized at least 50
-          years ago with numerous scholarly publications describing the approach{" "}
-          <Reference id="areal-interpolation" />.
+          within a specific area of interest. This process has been used in
+          numerous scholarly publications <Reference id="areal-interpolation" />
+          .
           <br />
-          <br />A simplified explanation of areal interpolation is described in
-          the below diagrams:
+          <br />
+          Use the below interactive tool for a simplified explanation of the
+          approach to areal interpolation:
           <ArealExplainer />
           {/* section level PUR data was joined to the
           relevant geographic units. This process applied area interpolation to
@@ -588,39 +592,52 @@ export const AboutWidget = () => {
               Census demographic data are joined based on relevant geographic
               identifier (GEOID, FIPS, or ZCTA).
             </li>
+            <li>
+              Pounds of product used are de-duplicated per each pesticide use based on a use
+              id generated from the use number, date, and geography.
+            </li>
           </ul>
           <br />
         </Typography>
-        <Typography component={"h4"}>Data Filtering</Typography>
+        <Typography component={"h4"} fontWeight={"bold"}>
+          Data Filtering
+        </Typography>
         <Typography variant="body1">
           In filtering the data, the following filters match using a SQL{" "}
           <InlineCode>IN</InlineCode> where clause:
           <ol>
-            <li>
-              Active Ingredient (AI): <InlineCode>CHEMICAL_CODE</InlineCode> in
-              selected active ingredient identifiers
-            </li>
-            <li>
-              Active Ingredient Class: <InlineCode>ai_class</InlineCode> in
-              selected active ingredient classes
-            </li>
-            <li>
-              Active Ingredient Type: <InlineCode>ai_type</InlineCode> in
-              selected active ingredient typees
-            </li>
-            <li>
-              Product: <InlineCode>prodno</InlineCode> in selected product codes
-            </li>
-            <li>
-              Site: <InlineCode>site_code</InlineCode> in selected site codes
+<li>
+          Agricultural use: <InlineCode>usetype</InlineCode> (
+              <InlineCode>AG_NONAG</InlineCode>) equals selected
             </li>
             <li>
               Application Method: <InlineCode>aerial_ground</InlineCode> (
               <InlineCode>AERIAL_GROUND_INDICATOR</InlineCode>) equals selected
             </li>
             <li>
-              Agricultural use: <InlineCode>usetype</InlineCode> (
-              <InlineCode>AG_NONAG</InlineCode>) equals selected
+              Crop or Site: <InlineCode>site_code</InlineCode> in selected site codes
+            </li>
+
+            <li>
+              Active Ingredient Chemical Class: <InlineCode>ai_class</InlineCode> in
+              selected active ingredient classes
+            </li>
+            <li>
+              Active Ingredient (AI): <InlineCode>CHEMICAL_CODE</InlineCode> in
+              selected active ingredient identifiers
+            </li>
+            <li>
+              Product: <InlineCode>prodno</InlineCode> in selected product codes
+            </li>
+            <li>
+              Active Ingredient Use Type: <InlineCode>ai_type</InlineCode> in
+              selected active ingredient types
+            </li>
+            <li>
+              Health / Environmental Impact: <InlineCode>health</InlineCode> contains one of the selected health or environmental impacts
+            </li>
+            <li>
+              Geography: <InlineCode>county_fips</InlineCode> area within selected county
             </li>
           </ol>
           The following filters use a SQL greater than{" "}
@@ -645,7 +662,9 @@ export const AboutWidget = () => {
             </li>
           </ol>
         </Typography>
-        <Typography component={"h4"}>Data Grouping</Typography>
+        <Typography component={"h4"} fontWeight={"bold"}>
+          Data Grouping
+        </Typography>
         <Typography variant="body1">
           After filtering, the following data groupings are applied:
           <br />
@@ -682,25 +701,20 @@ export const AboutWidget = () => {
           <br />
           <ol>
             <li>
-              Active Ingredient Class: Grouped by Active Ingredient Class and
-              date (monthyear) and pounds of chemical and product summed
+              Chemical Class: Grouped by active ingredient Chemical Class and
+              date (monthyear) and pounds of active ingredient summed
             </li>
             <li>
-              Active Ingredient Type: Grouped by Active Ingredient Type and date
-              (monthyear) and pounds of chemical and product summed
+              Use Type: Grouped by active ingredient Use Type and date
+              (monthyear) and pounds of active ingredient summed
             </li>
             <li>
-              Active Ingredient Type Specific: Grouped by Active Ingredient Type
-              Specific and date (monthyear) and pounds of chemical and product
-              summed
-            </li>
-            <li>
-              Active Ingredient: Grouped by Active Ingredient identifier and
-              date (monthyear) and pounds of chemical and product summed
+              Active Ingredient: Grouped by active ingredient identifier and
+              date (monthyear) and pounds of active ingredient summed
             </li>
             <li>
               Product: Grouped by product identifier and date (monthyear) and
-              pounds of chemical and product summed
+              pounds of product summed
             </li>
           </ol>
         </Typography>

@@ -25,3 +25,6 @@ dist-ssr
 .env
 analyze.html
 .pnpm-store
+
+# python
+__pycache__/

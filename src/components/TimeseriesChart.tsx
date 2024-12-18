@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { Line, LinePath } from "@visx/shape";
 import { curveMonotoneX } from "@visx/curve";
 import { scaleTime, scaleLinear } from "@visx/scale";
@@ -15,10 +15,10 @@ import { Typography } from "@mui/material";
 import * as d3 from "d3";
 import { Grid } from "@visx/grid";
 import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+// import InputLabel from "@mui/material/InputLabel";
+// import MenuItem from "@mui/material/MenuItem";
+// import FormControl from "@mui/material/FormControl";
+// import Select from "@mui/material/Select";
 
 let tooltipTimeout: number;
 
@@ -69,6 +69,10 @@ export default withTooltip<LineChartProps>(
     const margin = { top: 20, right: 20, bottom: 50, left: 60 };
     const xMax = width - margin.left - margin.right;
     const yMax = height - margin.top - margin.bottom;
+
+    useEffect(() => {
+      setCurrentDataCol(dataCol[0])
+    }, [dataCol])
 
     const { cleanedData, numberOfXTicks, keys, xScale, yScale, numberOfMonths } =
       useMemo(() => {
@@ -153,7 +157,7 @@ export default withTooltip<LineChartProps>(
         const increase = day > 15 ? 2: 1
         const month = nearest.getMonth() + increase;
         const year = nearest.getFullYear();
-        const monthyear = `${year}-${month.toString().padStart(2, "0")}`;
+        const monthyear = month === 13 ? `${year+1}-01`:`${year}-${month.toString().padStart(2, "0")}`;
         const monthData = data
           .filter((d) => d[dateCol] === monthyear)
           .sort((a, b) => `${a[keyCol]}`.localeCompare(`${b[keyCol]}`))
@@ -313,12 +317,15 @@ export default withTooltip<LineChartProps>(
           top={0}
           left={margin.left + 5}
           sx={{
-            background: "white",
+            background: "rgba(255,255,255,0.8)",
             p: 1,
           }}
           component={"div"}
         >
-          <FormControl size="small" sx={{ padding: 0, m: "0.5rem 0" }}>
+            <Typography fontWeight="bold">
+            {axisLabels?.[currentDataCol as keyof typeof axisLabels] || ''}
+            </Typography>
+          {/* <FormControl size="small" sx={{ padding: 0, m: "0.5rem 0" }}>
             <InputLabel
               id="demo-select-small-label"
               sx={{ background: "white", px: 1 }}
@@ -344,7 +351,7 @@ export default withTooltip<LineChartProps>(
                 </MenuItem>
               ))}
             </Select>
-          </FormControl>
+          </FormControl> */}
         </Box>
       </>
     );

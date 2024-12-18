@@ -72,7 +72,7 @@ export const getScaleQuintile = (
   const colorsRgb = colors.map(hexToRgb);
   const d3Scale = d3.scaleQuantile(
     // @ts-ignore
-    data.map((d) => d[accessor]),
+    data.map((d) => d[accessor]).filter(Boolean),
     colorsRgb
   );
   const mappedData = {};
@@ -84,7 +84,7 @@ export const getScaleQuintile = (
     const entryId = row.properties[geoid];
     // @ts-ignore
     const entryValue = mappedData[entryId];
-    if (entryValue === undefined) {
+    if (!entryValue) {
       return [0, 0, 0, 0];
     }
     return d3Scale(entryValue);

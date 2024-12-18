@@ -1,5 +1,5 @@
 const dateAccessed = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-
+const revision = `11-2024-WORK-IN-PROGRESS`
 export const license = `
 Data are licensed under the Creative Commons Attribution License 4.0 (CC-BY 4.0) (https://creativecommons.org/licenses/by/4.0/)
 
@@ -19,7 +19,15 @@ Bibtex for citation managers such as Zotero:
   organization = {Open Spatial Lab, Data Science Institute, University of Chicago}
 }
 `
+
+export const errata = `
+Downloads prior to revision ${revision} may contain the following errors:
+- Overestimate of pounds of product applied due to a data duplication error for pesticides with multiple active ingredients
+- Duplicate rows of the same ZIP codes and zip code data 
+- Not all areas (counties, tracts, etc.) were inlcuded in the download if no pesticide use was reported for given filters
+`
 export const dataSources = `
+Revision: ${revision}
 
 Data Sources
 --
@@ -28,33 +36,36 @@ CalPIP Home - California Pesticide Information Portal [WWW Document], 2024. URL 
 Pesticide Use Reporting [WWW Document], 2022. URL https://www.cdpr.ca.gov/docs/pur/purmain.htm (accessed 9.5.24).
 Social Explorer - Tables - ACS 2021 (5-Year Estimates) [WWW Document], 2021. . Social Explorer. URL https://www.socialexplorer.com/explore-maps (accessed 9.5.24).
 US Census Bureau, 2020. TIGER/Line Shapefiles [WWW Document]. Census.gov. URL https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html (accessed 9.5.24).
+
+Errata 
+--
+Please note that data downloads prior to revision [11-2024-WORK-IN-PROGRESS] may contain overestimtions in the "lbs_prd_used" column.
 `
 export const dataDescription = {
 map: `
 Data columns
 --
-- GEOID: Geographic Identifier [Census tracts only]
+- GEOID: Geographic Identifier [Census tracts and ZIP codes (ZCTA) only]
 - FIPS: Federal Information Processing Standards [Counties, School Districts]
 - TownshipRange: Township Range [Townships]
 - comtrs: County-Municipality-Section [Sections]
-- ZCTA5CE20: ZIP Code Tabulation Area [ZIP Codes]
 - lbs_chm_used: Pounds of active ingredient chemcial used
 - lbs_prd_used: Pounds of product used
 - ai_intensity: Pounds of active ingredient per square mile of total area (not just growing area)
 - prd_intensity: Pounds of product per square mile of total area (not just growing area)
 - Median HH Income: Median Household Income (2021 dollars)
-- Pax Total: Total Population
-- Pax NH Black: Total Black or African American Population (non hispanic)
+- Pop Total: Total Population
+- Pop NH Black: Total Black or African American Population (non hispanic)
 - Pct NH Black: Percent Black or African American
-- Pax Hispanic: Total Hispanic or Latino Population
+- Pop Hispanic: Total Hispanic or Latino Population
 - Pct Hispanic: Percent Hispanic or Latino
-- Pax NH White: Total White Population (non-Hispanic)
+- Pop NH White: Total White Population (non-Hispanic)
 - Pct NH White: Percent White (non-Hispanic)
-- Pax NH Asian: Total Asian Population (non-Hispanic)
+- Pop NH Asian: Total Asian Population (non-Hispanic)
 - Pct NH Asian: Percent Asian (non-Hispanic)
-- Pax NH American Indian: Total American Indian Population (non-Hispanic)
+- Pop NH American Indian: Total American Indian Population (non-Hispanic)
 - Pct NH American Indian: Percent American Indian (non-Hispanic)
-- Pax NH Pacific Islander: Total Pacific Islander Population (non-Hispanic)
+- Pop NH Pacific Islander: Total Pacific Islander Population (non-Hispanic)
 - Pct NH Pacific Islander: Percent Pacific Islander (non-Hispanic)
 - Pct No High School: Percent of people over 25 with Less Than High School degree as their highest level of education
 - Pct Agriculture: Percent of people working in Agriculture

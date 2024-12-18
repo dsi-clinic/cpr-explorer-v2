@@ -177,7 +177,7 @@ const cleanSingleCategoryData = (
             } else if (col === dateCol) {
               newRecord[col] = missingDate;
             } else {
-              newRecord[col] = null;
+              newRecord[col] = 0;
             }
           });
           cleanedData.push(newRecord);

@@ -185,7 +185,7 @@ export const AboutWidget = () => {
           The California People and Pesticides Explorer is a one-of-a-kind tool
           that makes it easier to view, map, and download California&#x27;s
           pesticide use report data, and serves as a resource for scientists,
-          growers, advocates, and the general public. This interactive data tool
+          growers, advocates, and the general public.  This interactive data tool
           links pesticide use data with community demographic data and makes
           data available at common census geographies, from townships to zip
           codes and counties.
@@ -282,6 +282,7 @@ export const AboutWidget = () => {
           </a>
           . Data on adjuvant use is not made publicly available. The California
           PUR data are updated in this tool within six months of release by DPR.
+          <br />
           <br />
           This interactive data tool enables users to filter or summarize
           publicly-available California PUR data based on the following
@@ -605,31 +606,38 @@ export const AboutWidget = () => {
           In filtering the data, the following filters match using a SQL{" "}
           <InlineCode>IN</InlineCode> where clause:
           <ol>
-            <li>
-              Active Ingredient (AI): <InlineCode>CHEMICAL_CODE</InlineCode> in
-              selected active ingredient identifiers
-            </li>
-            <li>
-              Active Ingredient Class: <InlineCode>ai_class</InlineCode> in
-              selected active ingredient classes
-            </li>
-            <li>
-              Active Ingredient Type: <InlineCode>ai_type</InlineCode> in
-              selected active ingredient types
-            </li>
-            <li>
-              Product: <InlineCode>prodno</InlineCode> in selected product codes
-            </li>
-            <li>
-              Site: <InlineCode>site_code</InlineCode> in selected site codes
+<li>
+          Agricultural use: <InlineCode>usetype</InlineCode> (
+              <InlineCode>AG_NONAG</InlineCode>) equals selected
             </li>
             <li>
               Application Method: <InlineCode>aerial_ground</InlineCode> (
               <InlineCode>AERIAL_GROUND_INDICATOR</InlineCode>) equals selected
             </li>
             <li>
-              Agricultural use: <InlineCode>usetype</InlineCode> (
-              <InlineCode>AG_NONAG</InlineCode>) equals selected
+              Crop or Site: <InlineCode>site_code</InlineCode> in selected site codes
+            </li>
+
+            <li>
+              Active Ingredient Chemical Class: <InlineCode>ai_class</InlineCode> in
+              selected active ingredient classes
+            </li>
+            <li>
+              Active Ingredient (AI): <InlineCode>CHEMICAL_CODE</InlineCode> in
+              selected active ingredient identifiers
+            </li>
+            <li>
+              Product: <InlineCode>prodno</InlineCode> in selected product codes
+            </li>
+            <li>
+              Active Ingredient Use Type: <InlineCode>ai_type</InlineCode> in
+              selected active ingredient types
+            </li>
+            <li>
+              Health / Environmental Impact: <InlineCode>health</InlineCode> contains one of the selected health or environmental impacts
+            </li>
+            <li>
+              Geography: <InlineCode>county_fips</InlineCode> area within selected county
             </li>
           </ol>
           The following filters use a SQL greater than{" "}

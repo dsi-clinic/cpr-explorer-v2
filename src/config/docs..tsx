@@ -1,5 +1,5 @@
 const dateAccessed = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-const revision = `11-2024-WORK-IN-PROGRESS`
+const revision = `12-2024`
 export const license = `
 Data are licensed under the Creative Commons Attribution License 4.0 (CC-BY 4.0) (https://creativecommons.org/licenses/by/4.0/)
 
@@ -21,7 +21,7 @@ Bibtex for citation managers such as Zotero:
 `
 
 export const errata = `
-Downloads prior to revision ${revision} may contain the following errors:
+Downloads prior to revision 12-2024 may contain the following errors:
 - Overestimate of pounds of product applied due to a data duplication error for pesticides with multiple active ingredients
 - Duplicate rows of the same ZIP codes and zip code data 
 - Not all areas (counties, tracts, etc.) were inlcuded in the download if no pesticide use was reported for given filters

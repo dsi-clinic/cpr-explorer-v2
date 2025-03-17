@@ -8,6 +8,7 @@ import TimeseriesChart from "./TimeseriesChart";
 import { LoadingStateShade } from "./LoadingShade";
 import { FilterListBox } from "./FilterListBox";
 import { isDisplay } from "../utils/queryParams";
+import { END_YEAR } from "../dates";
 
 export const TimeseriesWidget = () => {
   // const executeQuery = useStore((state) => state.executeQuery);
@@ -51,9 +52,9 @@ export const TimeseriesWidget = () => {
           width={width}
           height={height}
           // @ts-ignore
-          minDate={dateFilter?.value[0] || "2022-01"}
+          minDate={dateFilter?.value[0] || `${END_YEAR}-01`}
           // @ts-ignore
-          maxDate={dateFilter?.value[1] || "2022-12"}
+          maxDate={dateFilter?.value[1] || `${END_YEAR}-12`}
           keyCol={currentConfig?.keyCol || "ai_class"}
           dateCol={currentConfig?.dateCol || "monthyear"}
           // @ts-ignore

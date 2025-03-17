@@ -14,6 +14,7 @@ import { useStore } from "../state/store";
 import { styled, useMediaQuery } from "@mui/system";
 import { useMobileFiltersState } from "./FilterControls";
 import { TabButton } from "./TabButton";
+import { END_YEAR, START_YEAR } from "../dates";
 
 interface JoyrideState {
   run: boolean;
@@ -99,7 +100,7 @@ const getStepLogic: (
       sub = useStore.subscribe((state) => {
         const dateRange = state.uiFilters.find((f) => f.label === "Date Range");
         // @ts-ignore
-        const yearIs2021 = dateRange?.value?.[0]?.slice(0, 4) === "2021";
+        const yearIs2021 = dateRange?.value?.[0]?.slice(0, 4) === `${END_YEAR-1}`;
         if (yearIs2021) {
           sub();
           setStepIndex((p) => p + 1);
@@ -110,12 +111,12 @@ const getStepLogic: (
       filtersState();
       const dateRange = state.uiFilters.find((f) => f.label === "Date Range");
       // @ts-ignore
-      const yearIs2021 = dateRange?.value?.[0]?.slice(0, 4) === "2021";
+      const yearIs2021 = dateRange?.value?.[0]?.slice(0, 4) === `${END_YEAR-1}`;
       if (!yearIs2021) {
         const newFilter = {
           ...(dateRange as FilterState),
-          value: ["2021-01", "2022-12"],
-          valueLabels: ["2021-01", "2022-02"],
+          value: [`${END_YEAR-1}}-01`, `${END_YEAR}-12`],
+          valueLabels: [`${END_YEAR-1}}-01`, `${END_YEAR}-02`],
         };
         sub();
         state.setFilter(newFilter);
@@ -375,7 +376,7 @@ const getSteps: (StepButtons: React.FC, isDesktop: boolean) => Step[] = (
           </Typography>
           <Typography variant="body1">
             Whenever possible, the settings from one data view will carry over
-            to another. In this case, our date range (2021-01 to 2022-12)
+            to another. In this case, our date range ({END_YEAR-1}-01 to {END_YEAR}-12)
             carried over from the map view.
           </Typography>
           <StepButtons />
@@ -629,7 +630,7 @@ export const Quickstart: React.FC<{
                     characteristics
                   </li>
                   <li>
-                    Filter data month by month from 2017 to 2022, and see data
+                    Filter data month by month from {START_YEAR} to {END_YEAR}, and see data
                     used over time (use over time view)
                   </li>
                   <li>

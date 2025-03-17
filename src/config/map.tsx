@@ -7,6 +7,7 @@ import {
   pesticideInfoFilters,
 } from "./filters";
 import * as d3 from "d3";
+import { END_YEAR, START_YEAR } from "../dates";
 
 const demographicFilterKeys = [
   "Median Household Income",
@@ -39,7 +40,7 @@ export const mapLayers: {
   {
     label: "Pounds of Chemicals Applied",
     dataColumn: "lbs_chm_used",
-    attribution: "CDPR PUR 2017-2022; 2020 Census Geos",
+    attribution: `CDPR PUR ${START_YEAR}-${END_YEAR}; 2020 Census Geos`,
     tooltipKeys: {
       lbs_chm_used: "Pounds of Chemicals Applied",
     },
@@ -47,7 +48,7 @@ export const mapLayers: {
   {
     label: "Pounds of Product Applied",
     dataColumn: "lbs_prd_used",
-    attribution: "CDPR PUR 2017-2022; 2020 Census Geos",
+    attribution: `CDPR PUR ${START_YEAR}-${END_YEAR}; 2020 Census Geos`,
     tooltipKeys: {
       lbs_prd_used: "Pounds of Product Applied",
     },
@@ -55,7 +56,7 @@ export const mapLayers: {
   {
     label: "AI Intensity (lbs/sq mi)",
     dataColumn: "ai_intensity",
-    attribution: "CDPR PUR 2017-2022; 2020 Census Geos",
+    attribution: `CDPR PUR ${START_YEAR}-${END_YEAR}; 2020 Census Geos`,
     tooltipKeys: {
       ai_intensity: "AI Intensity (lbs/sq mi)",
     },
@@ -63,7 +64,7 @@ export const mapLayers: {
   {
     label: "Product Intensity (lbs/sq mi)",
     dataColumn: "prd_intensity",
-    attribution: "CDPR PUR 2017-2022; 2020 Census Geos",
+    attribution: `CDPR PUR ${START_YEAR}-${END_YEAR}; 2020 Census Geos`,
     tooltipKeys: {
       prd_intensity: "Product Intensity (lbs/sq mi)",
     },

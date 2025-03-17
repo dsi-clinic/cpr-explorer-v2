@@ -4,6 +4,7 @@ import React from "react";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
+import { END_YEAR } from "../dates";
 
 const InlineCode = styled("code")({
   backgroundColor: "#f4f4f4",
@@ -451,7 +452,7 @@ export const AboutWidget = () => {
               (accessed 9.5.24).
             </li>
             <li>
-              Pesticide Use Reporting [WWW Document], 2022, URL{" "}
+              Pesticide Use Reporting [WWW Document], {END_YEAR}, URL{" "}
               <a
                 target="_blank"
                 href="https://www.google.com/url?q=https://www.cdpr.ca.gov/docs/pur/purmain.htm&amp;sa=D&amp;source=editors&amp;ust=1734559247942635&amp;usg=AOvVaw3EwVIQ2dgTRQXciEECxLJ-"

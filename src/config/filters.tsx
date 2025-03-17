@@ -1,3 +1,4 @@
+import { END_YEAR, START_YEAR } from "../dates";
 import { type FilterSpec } from "../types/state";
 
 export type FilterValue = string | string[] | number | number[] | null;
@@ -17,17 +18,17 @@ const dateSection: FilterSection = {
       queryParam: ["start", "end"],
       label: "Date Range",
       alwaysInclude: true,
-      default: ["2022-01", "2022-12"],
+      default: [`${END_YEAR}-01`, `${END_YEAR}-12`],
       options: {
         type: "static",
         values: [
           {
-            value: "2022-12",
-            label: "max",
+            value: `${END_YEAR}-12`,
+            label: `max`,
           },
           {
-            value: "2017-01",
-            label: "min",
+            value: `${START_YEAR}}-01`,
+            label: `min`,
           },
         ],
       },
@@ -38,7 +39,7 @@ const dateSection: FilterSection = {
 
 export const applicationFilters: FilterSection = {
   title: "Pesticide Application",
-  subtitle: "Pounds used under label name reflects the 2017 to 2022 annual average",
+  subtitle: `Pounds used under label name reflects the ${START_YEAR} to ${END_YEAR} annual average`,
   defaultOpen: false,
   filters: [
     {
@@ -114,7 +115,7 @@ export const applicationFilters: FilterSection = {
 
 export const pesticideInfoFilters: FilterSection = {
   title: "Chemical and Product Information",
-  subtitle: "Pounds used under label name reflects the 2017 to 2022 annual average",
+  subtitle: `Pounds used under label name reflects the ${START_YEAR} to ${END_YEAR} annual average`,
   defaultOpen: false,
   filters: [
     {

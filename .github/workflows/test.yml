@@ -29,6 +29,8 @@ jobs:
       - name: Run Test
         run: python scripts/calpip_match_test.py
 
+      - name: Update years
+        run: python scripts/update-years.py
       # Commit test results
       - name: Commit Test Results
         run: |

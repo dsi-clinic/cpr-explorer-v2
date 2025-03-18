@@ -54,13 +54,13 @@ class ComparisonRunner():
       assert ave_diff < config["threshold"]
 
       print("\nPASSED", f"{round(ave_diff*100, 3)}% average difference\n", config["name"], config["type"], cols)
-      self.results[f"{config["name"]} :: {cols[1]}"] = f"{round(ave_diff*100, 3)}%"
+      self.results[f"{config['name']} :: {cols[1]}"] = f"{round(ave_diff*100, 3)}%"
   
   def run_correlation_test(self, config):
     merged = self.get_merged_tables(config)
     for cols in config["comparison_cols"]:
       correlation = merged[cols[0]].corr(merged[cols[1]])
-      self.results[f"{config["name"]} :: {cols[1]}" + ' r-squared'] = round((correlation**2)*100, 3)
+      self.results[f"{config['name']} :: {cols[1]}" + ' r-squared'] = round((correlation**2)*100, 3)
       assert correlation > config["threshold"]
       print("\nPASSED", f"{round(correlation*100, 3)}% correlation\n", config["name"], config["type"], cols)
 

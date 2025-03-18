@@ -31,12 +31,23 @@ jobs:
 
       - name: Update years
         run: python scripts/update-years.py
-      # Commit test results
+
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: npm i -g pnpm && pnpm install  
+
+      - name: build
+        run: pnpm build
+        
+      # Commit the results
       - name: Commit Test Results
         run: |
           git config --local user.email "Updated test results"
           git config --local user.name "github-actions"
-          git add README.md test_results.json
+          git add .
           git commit -m "Update test results"
           git push
           

@@ -27,7 +27,7 @@ jobs:
 
       # Run the test process
       - name: Run Test
-        run: python scripts/test/calpip-match-test.py
+        run: python scripts/tests/calpip-match-test.py
 
       - name: Update years
         run: python scripts/update-years.py

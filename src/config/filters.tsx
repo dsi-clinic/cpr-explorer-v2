@@ -27,7 +27,7 @@ const dateSection: FilterSection = {
             label: `max`,
           },
           {
-            value: `${START_YEAR}}-01`,
+            value: `${START_YEAR}-01`,
             label: `min`,
           },
         ],

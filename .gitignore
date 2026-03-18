@@ -28,3 +28,4 @@ analyze.html
 
 # python
 __pycache__/
+test_results.json

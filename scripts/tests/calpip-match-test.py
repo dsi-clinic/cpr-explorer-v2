@@ -2,15 +2,20 @@
 import json
 from config import GROUNDTRUTH_FILES, TEST_CONFIG
 from utilities import GroundTruthDataParser, ComparisonRunner
+from pathlib import Path
 
+REPO_ROOT = Path(__file__).parent.parent.parent
+README_FILE = Path.joinpath(REPO_ROOT, "README.md")
 groundtruth = GroundTruthDataParser(GROUNDTRUTH_FILES)
 test_runner =  ComparisonRunner(TEST_CONFIG, groundtruth)
 
 def test_run_county_totals():
   test_runner.run_test("2022 :: County totals")
+  test_runner.run_test("2023 :: County totals")
 
 def test_run_county_correlation():
   test_runner.run_test("2022 :: County correlation")
+  test_runner.run_test("2023 :: County correlation")
 
 def test_run_county_ag_totals():
   test_runner.run_test("2020 :: County ag totals")
@@ -20,9 +25,11 @@ def test_run_county_ag_correlation():
 
 def test_run_county_non_ag_totals():
   test_runner.run_test("2022 :: County non-ag totals")
+  test_runner.run_test("2023 :: County non-ag totals")
 
 def test_run_county_non_ag_correlation():
   test_runner.run_test("2022 :: County non-ag correlation")
+  test_runner.run_test("2023 :: County non-ag correlation")
 
 def test_run_tract_sum_total():
   test_runner.run_test("Tract Sum Total")
@@ -40,16 +47,34 @@ def test_run_section_total():
   test_runner.run_test("Section Total")
 
 def test_run_sac_total():
-  test_runner.run_test("Sections Sacramento Alfalfa Total")
+  test_runner.run_test("2020 :: Sections Sacramento Alfalfa Total")
+  test_runner.run_test("2023 :: Sections Sacramento Alfalfa Total")
 
 def test_run_sac_correlation():
-  test_runner.run_test("Sections Sacramento alfalfa correlation")
+  test_runner.run_test("2020 :: Sections Sacramento alfalfa correlation")
+  test_runner.run_test("2023 :: Sections Sacramento alfalfa correlation")
+
+
+def run_all_tests():
+  test_run_county_totals()
+  test_run_county_correlation()
+  test_run_county_ag_totals()
+  test_run_county_ag_correlation()
+  test_run_county_non_ag_totals()
+  test_run_county_non_ag_correlation()
+  test_run_tract_sum_total()
+  test_run_school_districts_sum_total()
+  test_run_zcta_sum_total()
+  test_run_townships_total()
+  test_run_section_total()
+  test_run_sac_total()
+  test_run_sac_correlation()
 
 def test_export_results():
-  with open("test_results.json", "w") as f:
+  with open(Path.joinpath(REPO_ROOT, "test_results.json"), "w") as f:
     json.dump(test_runner.results, f)
   
-  with open("../README.md", "r") as f:
+  with open(README_FILE, "r") as f:
     lines = f.readlines()
 
   start_idx = end_idx = None
@@ -70,5 +95,10 @@ def test_export_results():
     
     new_lines += lines[end_idx:]
     
-    with open("../README.md", "w") as f:
+    with open(README_FILE, "w") as f:
       f.writelines(new_lines)
+
+
+if __name__ == "__main__":
+  run_all_tests()
+  test_export_results()

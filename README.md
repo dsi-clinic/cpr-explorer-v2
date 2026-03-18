@@ -14,17 +14,25 @@ The expected deviation from default data is shown as a percentage.
 | Test Name | Deviation |
 |-----------|-----------|
 | 2022 County Totals :: SUM_LBS_CHEMICAL | 0.077% |
-| 2022 County Totals :: SUM_LBS_PRODUCT | 0.531% |
+| 2022 County Totals :: SUM_LBS_PRODUCT | -10.281% |
+| 2023 County Totals :: SUM_LBS_CHEMICAL | 0.089% |
+| 2023 County Totals :: SUM_LBS_PRODUCT | 0.516% |
 | 2022 County correlation :: SUM_LBS_CHEMICAL r-squared | 100.0 |
-| 2022 County correlation :: SUM_LBS_PRODUCT r-squared | 99.957 |
+| 2022 County correlation :: SUM_LBS_PRODUCT r-squared | 99.75 |
+| 2023 County correlation :: SUM_LBS_CHEMICAL r-squared | 100.0 |
+| 2023 County correlation :: SUM_LBS_PRODUCT r-squared | 99.974 |
 | 2020 County ag totals :: SUM_LBS_CHEMICAL | 0.06% |
 | 2020 County ag totals :: SUM_LBS_PRODUCT | 0.084% |
 | 2020 County ag correlation :: SUM_LBS_CHEMICAL r-squared | 100.0 |
 | 2020 County ag correlation :: SUM_LBS_PRODUCT r-squared | 100.0 |
 | 2022 County non-ag totals :: SUM_LBS_CHEMICAL | 0.109% |
-| 2022 County non-ag totals :: SUM_LBS_PRODUCT | 0.664% |
+| 2022 County non-ag totals :: SUM_LBS_PRODUCT | -5.146% |
+| 2023 County non-ag totals :: SUM_LBS_CHEMICAL | 0.127% |
+| 2023 County non-ag totals :: SUM_LBS_PRODUCT | 0.672% |
 | 2022 County non-ag correlation :: SUM_LBS_CHEMICAL r-squared | 99.999 |
-| 2022 County non-ag correlation :: SUM_LBS_PRODUCT r-squared | 98.286 |
+| 2022 County non-ag correlation :: SUM_LBS_PRODUCT r-squared | 97.985 |
+| 2023 County non-ag correlation :: SUM_LBS_CHEMICAL r-squared | 99.999 |
+| 2023 County non-ag correlation :: SUM_LBS_PRODUCT r-squared | 98.95 |
 | Tract Sum Total SUM_LBS_CHEMICAL | 0.1% |
 | Tract Sum Total SUM_LBS_PRODUCT | 0.144% |
 | School Districts Sum Total SUM_LBS_CHEMICAL | 0.1% |
@@ -35,10 +43,14 @@ The expected deviation from default data is shown as a percentage.
 | Townships Total SUM_LBS_PRODUCT | 0.144% |
 | Section Total SUM_LBS_CHEMICAL | 0.1% |
 | Section Total SUM_LBS_PRODUCT | 0.144% |
-| Sections Sacramento alfalfa total POUNDS_CHEMICAL_APPLIED | -0.0% |
-| Sections Sacramento alfalfa total POUNDS_PRODUCT_APPLIED | -0.027% |
-| Sections Sacramento alfalfa correlation :: POUNDS_CHEMICAL_APPLIED r-squared | 100.0 |
-| Sections Sacramento alfalfa correlation :: POUNDS_PRODUCT_APPLIED r-squared | 100.0 |
+| 2020 :: Sections Sacramento alfalfa total POUNDS_CHEMICAL_APPLIED | -0.0% |
+| 2020 :: Sections Sacramento alfalfa total POUNDS_PRODUCT_APPLIED | -0.027% |
+| 2023 :: Sections Sacramento alfalfa total POUNDS_CHEMICAL_APPLIED | 0.0% |
+| 2023 :: Sections Sacramento alfalfa total POUNDS_PRODUCT_APPLIED | -0.477% |
+| 2020 :: Sections Sacramento alfalfa correlation :: POUNDS_CHEMICAL_APPLIED r-squared | 100.0 |
+| 2020 :: Sections Sacramento alfalfa correlation :: POUNDS_PRODUCT_APPLIED r-squared | 100.0 |
+| 2023 :: Sections Sacramento alfalfa correlation :: POUNDS_CHEMICAL_APPLIED r-squared | 100.0 |
+| 2023 :: Sections Sacramento alfalfa correlation :: POUNDS_PRODUCT_APPLIED r-squared | 99.932 |
 <!-- END LATEST TEST -->
 ## env requirements
 ```
